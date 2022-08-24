@@ -1,10 +1,32 @@
 import React from "react";
-import {useSelector} from "react-redux";
+import {useDispatch, useSelector} from "react-redux";
 import searchIcon from '../assets/search.svg';
+import { authorImgChecked, authorTitleChecked, categoryChecked, titleChecked } from "../redux/blogs/actions";
 function Blogs() {
+    const dispatch = useDispatch();
     const blogs = useSelector((state)=> state.blogs)
     console.log(blogs);
     
+   const  handleCheckCategory = (e) =>{
+       console.log("get parameter",e);
+    //    console.log(typeof e);
+      dispatch(categoryChecked(e))
+   }
+   const  handleCheckTitle = (e) =>{
+       console.log("get parameter",e);
+    //    console.log(typeof e);
+      dispatch(titleChecked(e))
+   }
+   const  handleCheckAuthorImg = (e) =>{
+       console.log("get parameter",e);
+    //    console.log(typeof e);
+      dispatch(authorImgChecked(e))
+   }
+   const  handleCheckAuthorTitle = (e) =>{
+       console.log("get parameter",e);
+    //    console.log(typeof e);
+      dispatch(authorTitleChecked(e))
+   }
   return (
     <>
       <div class="border mt-6 border-slate-200 flex items-center w-11/12 lg:w-1/2 mx-auto bg-gray-50 h-12 px-8 lg:px-12 rounded-lg text-sm ring-emerald-200">
@@ -52,19 +74,19 @@ function Blogs() {
       
                     <div class="flex-1 bg-white p-6 flex flex-col justify-between">
                       <div class="flex-1">
-                        <p class="text-sm font-medium text-indigo-600">
+                        <p onClick={() => handleCheckCategory(item.category)} class="text-sm font-medium text-indigo-600">
                           <span class="inline-flex items-center px-3 py-0.5 rounded-full text-sm font-medium bg-indigo-100 text-indigo-800">
                             {item.category}
                           </span>
                         </p>
-                        <a href="#" class="block mt-1">
+                        <a onClick={() => handleCheckTitle(item.title)} href="#" class="block mt-1">
                           <p class="text-xl font-semibold text-gray-900">
                             {item.title}
                           </p>
                         </a>
                       </div>
                       <div class="mt-6 flex items-center">
-                        <div class="flex-shrink-0">
+                        <div onClick={() => handleCheckAuthorImg(item.author_img)} class="flex-shrink-0">
                           <img
                             class="h-10 w-10 rounded-full"
                             src={item.author_img}
@@ -72,7 +94,7 @@ function Blogs() {
                           />
                         </div>
                         <div class="ml-3">
-                          <p class="text-sm font-medium text-gray-900 hover:underline">
+                          <p onClick={() => handleCheckAuthorTitle(item.author_title)} class="text-sm font-medium text-gray-900 hover:underline">
                             {item.author_title}
                           </p>
                           <div class="flex space-x-1 text-sm text-gray-500">
