@@ -7,6 +7,7 @@ import {
   categoryChecked,
   titleChecked,
 } from "../redux/blogs/actions";
+import { clickCategory } from "../redux/filters/actions";
 // import useDebounce from "./hooc/UseDebounce";
 
 const debounce = (fn,delay) => {
@@ -24,10 +25,11 @@ const debounce = (fn,delay) => {
 
 function Blogs() {
   const [search, setSearch] = useState("");
-  const [filteredTitle, setFilteredTitle] = useState([]);
   //debounce end
   const dispatch = useDispatch();
   const blogs = useSelector((state) => state.blogs);
+  const filters = useSelector((state) => state.filters);
+  console.log(filters);
   console.log(blogs);
 
   // DeBounce Function
@@ -44,6 +46,7 @@ function Blogs() {
     console.log("get parameter", e);
     //    console.log(typeof e);
     dispatch(categoryChecked(e));
+    dispatch(clickCategory(e));
   };
   const handleCheckTitle = (e) => {
     console.log("get parameter", e);
