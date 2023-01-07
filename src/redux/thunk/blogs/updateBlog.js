@@ -4,7 +4,7 @@ import axios from "axios";
 const updateBlog = (blogId, title) => {
   console.log("updateBLOg",blogId, title);
   return async (dispatch, getState) => {
-    const res = await fetch(`http://localhost:5000/product/${blogId}`, {
+    const res = await fetch(`https://redux-blog-server-zeta.vercel.app/product/${blogId}`, {
       method: "PATCH",
       body: JSON.stringify({
         _id: blogId,

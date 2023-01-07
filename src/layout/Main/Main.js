@@ -1,6 +1,6 @@
 import React,{ useState }from "react";
 import { Outlet } from "react-router-dom";
-import Navbar from "./Navbar";
+// import Navbar from "./Navbar";
 import { Link } from "react-router-dom";
 // import searchIcon from "../assets/search.svg";
 import { BiSearchAlt } from "react-icons/bi";
@@ -36,48 +36,21 @@ const Main = () => {
             <button>
               <BiSearchAlt />
             </button>
-            {/* <div class="border mt-6 border-slate-200 flex items-center w-11/12 lg:w-1/4 mx-auto bg-gray-50 h-3 px-8 lg:px-12 rounded-lg text-sm ring-emerald-200">
-              <input
-                class="outline-none border-none bg-gray-50 h-full w-full mr-2"
-                type="search"
-                name="search"
-                placeholder="Search"
-                onChange={handleSearch}
-              />
-              <img
-                class="inline h-6 cursor-pointer"
-                src={searchIcon}
-                alt="Search"
-              />
-            </div> */}
+    
           </li>
           <li>
             <Link to="/">Home</Link>
           </li>
-          {/* <li>
-            <Link to="/top-rated">Top Rated</Link>
-          </li>
-          <li>
-            <Link to="/about">About</Link>
-          </li> */}
+       
           <li>
             <Link to="/dashboard">Dashboard</Link>
           </li>
-          {/* <Link to='/'>
-          <li title='Wishlist' className='bg-indigo-500 p-2 rounded-full'>
-            <IoIosListBox className='text-white' />
-          </li>
-        </Link>
-        <Link to='/cart'>
-          <li title='cart' className='bg-indigo-500 p-2 rounded-full'>
-            <BsFillCartFill className='text-white ' />
-          </li>
-        </Link> */}
+     
         </ul>
       </nav>
       {/* for header end  */}
       <div className='px-10'>
-      {/* <Navbar /> */}
+
       <Outlet />
     </div>
     </>
